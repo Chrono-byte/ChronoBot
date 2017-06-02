@@ -61,7 +61,7 @@ client.on('message', message => {
 
     if (message.content === prefix + 'self') {
         console.log('[CONSOLE] INFO POSTED')
-        message.edit(`${client.user.username} uses ChronoBot, a selfbot by Chronomly6#8108`)
+        message.edit(`${client.user.username} uses ChronoBot, a selfbot by Chronomly6#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
     }
 
 });
