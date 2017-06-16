@@ -64,6 +64,22 @@ client.on('message', message => {
         message.edit(`${client.user.username} uses ChronoBot, a selfbot by Chronomly6#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
     }
 
+    if (message.content.startsWith(prefix + 'eval') {
+        let code;
+      try {
+        if (message.content.includes("token") || message.content.includes("\`token\`")) return message.channel.send("The message was censored because it contained sensitive information!");
+        code = eval(message.content.split(" ").slice(1).join(" "));
+        //if (typeof code !== "string") code = util.inspect(code);
+      } catch (err) {
+        code = err.essage;
+      }
+      let evaled = `:inbox_tray: **Input:**\`\`\`js\n${message.content.split(" ").slice(1).join(" ")}\`\`\`\n\n:outbox_tray: **Output:**\n\`\`\`js\n${code}\`\`\``;
+      message.channel.send("evaling...")
+        .then((newMsg) => {
+          newMsg.edit(evaled)
+        });
+    }
+
 });
 
 client.on('message', message => {
