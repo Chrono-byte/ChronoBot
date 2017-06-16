@@ -13,58 +13,58 @@ client.on('message', message => {
     if(message.author !== client.user) return;
     let prefix = config.prefix
 
-    if (message.content === prefix + 'shrug') {
+   if (message.content.startsWith(prefix + 'shrug')) {
         console.log('[CONSOLE] whatever')
         message.edit("¯\_(ツ)_/¯");
     }
 
-    if (message.content === prefix + 'tableflip') {
+   if (message.content.startsWith(prefix + 'tableflip')) {
         console.log('[CONSOLE] flipping the table')
         message.edit("(╯°□°）╯︵ ┻━┻");
     }
 
-    if (message.content === prefix + 'unflip') {
+   if (message.content.startsWith(prefix + 'unflip')) {
         console.log('[CONSOLE] unflipping the table')
         message.edit("┬─┬﻿ ノ( ゜-゜ノ)");
     }
 
-    if (message.content === prefix + 'info') {
+   if (message.content.startsWith(prefix + 'info')) {
         console.log('[CONSOLE] pasting info!')
         message.edit(`Server Count: ${client.guilds.size}\nUser Count: ${client.users.size}\n` + "**Response time**: " + (Date.now() - message.createdTimestamp) + "ms");
     }
-    if (message.content === prefix + 'online') {
+   if (message.content.startsWith(prefix + 'online')) {
         console.log('[CONSOLE] going online!')
         message.edit("")
         client.user.setGame('ONLINE! :)')
         client.user.setStatus('online')
     }
 
-    if (message.content === prefix + 'idle') {
+   if (message.content.startsWith(prefix + 'idle')) {
         console.log('[CONSOLE] idle')
         message.edit("")
         client.user.setGame('BRB! :)')
         client.user.setStatus('idle')
     }
 
-    if (message.content === prefix + 'afk') {
+   if (message.content.startsWith(prefix + 'afk')) {
         console.log('[CONSOLE] afk')
         message.edit("")
         client.user.setGame('AFK :(')
         client.user.setStatus('dnd')
     }
 
-    if (message.content === prefix + 'steath') {
+   if (message.content.startsWith(prefix + 'steath')) {
         console.log('[CONSOLE] steath active')
         message.edit("steath mode active")
         client.user.setStatus('invisible')
     }
 
-    if (message.content === prefix + 'self') {
+   if (message.content.startsWith(prefix + 'self')) {
         console.log('[CONSOLE] INFO POSTED')
         message.edit(`${client.user.username} uses ChronoBot, a selfbot by Chronomly6#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
     }
 
-    if (message.content.startsWith(prefix + 'eval') {
+    if (message.content.startsWith(prefix + 'eval')) {
         let code;
       try {
         if (message.content.includes("token") || message.content.includes("\`token\`")) return message.channel.send("The message was censored because it contained sensitive information!");
