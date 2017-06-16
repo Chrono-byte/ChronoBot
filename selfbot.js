@@ -77,16 +77,6 @@ client.on('message', message => {
       let evaled = `:inbox_tray: **Input:**\`\`\`js\n${message.content.split(" ").slice(1).join(" ")}\`\`\`\n\n:outbox_tray: **Output:**\n\`\`\`js\n${code}\`\`\``;
           message.edit(evaled)
     }
-
-    //if (message.content.startsWith(prefix + 'exec')) {
-    //    let cmd = message.content.split(" ").slice(1).join(" ");
-    //    message.delete()
-    //    childProcess.exec(cmd, {},
-    //    (err, stdout, stderr) => {
-    //      if (err) return message.channel.sendCode("", err.message);
-    //      message.channel.sendCode("", stdout);
-    //    });
-    //}
 });
 
 client.on('message', message => {
