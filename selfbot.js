@@ -78,15 +78,15 @@ client.on('message', message => {
           message.edit(evaled)
     }
 
-    if (message.content.startsWith(prefix + 'exec')) {
-        let cmd = message.content.split(" ").slice(1).join(" ");
-        message.delete()
-        childProcess.exec(cmd, {},
-        (err, stdout, stderr) => {
-          if (err) return message.channel.sendCode("", err.message);
-          message.channel.sendCode("", stdout);
-        });
-    }
+    //if (message.content.startsWith(prefix + 'exec')) {
+    //    let cmd = message.content.split(" ").slice(1).join(" ");
+    //    message.delete()
+    //    childProcess.exec(cmd, {},
+    //    (err, stdout, stderr) => {
+    //      if (err) return message.channel.sendCode("", err.message);
+    //      message.channel.sendCode("", stdout);
+    //    });
+    //}
 });
 
 client.on('message', message => {
