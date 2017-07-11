@@ -36,9 +36,19 @@ client.on('message', message => {
         message.edit("┬─┬﻿ ノ( ゜-゜ノ)");
     }
 
-    if (message.content.startsWith(prefix + 'info')) {
+    if (message.content.startsWith(prefix + 'ping')) {
         const embed = new Discord.RichEmbed()
-            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+            .setAuthor(`Pong!`, `${message.author.avatarURL}`)
+            .setColor(0x0000FF)
+            .setDescription("**Response time**: " + (Date.now() - message.createdTimestamp) + "ms")
+            .setFooter(``)
+            .setTimestamp()
+        message.edit({ embed: embed})
+    }
+
+    if (message.content.startsWith(prefix + 'stats')) {
+        const embed = new Discord.RichEmbed()
+            .setAuthor(`Stats`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
             .setDescription(`Server Count: ${client.guilds.size}\nUser Count: ${client.users.size}\n` + "**Response time**: " + (Date.now() - message.createdTimestamp) + "ms")
             .setFooter(``)
@@ -46,9 +56,9 @@ client.on('message', message => {
         message.edit({ embed: embed})
     }
 
-    if (message.content.startsWith(prefix + 'self')) {
+    if (message.content.startsWith(prefix + 'info')) {
         const embed = new Discord.RichEmbed()
-            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+            .setAuthor(`ChronoBot`, `https://cdn.discordapp.com/avatars/251383432331001856/c6a0ec56ad6e5f903412cfa86eb2c8a0.png?size=2048`)
             .setColor(0x0000FF)
             .setDescription(`${client.user.username} uses ChronoBot, a selfbot by Chronomly6#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
             .setFooter(``)
@@ -67,7 +77,7 @@ client.on('message', message => {
       }
       let evaled = `:inbox_tray: **Input:**\`\`\`js\n${message.content.split(" ").slice(1).join(" ")}\`\`\`\n\n:outbox_tray: **Output:**\n\`\`\`js\n${code}\`\`\``;
         const embed = new Discord.RichEmbed()
-            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+            .setAuthor(`Eval`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
             .setDescription(`${evaled}`)
             .setFooter(``)
