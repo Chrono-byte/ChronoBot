@@ -76,6 +76,17 @@ client.on('message', message => {
       let evaled = `:inbox_tray: **Input:**\`\`\`js\n${message.content.split(" ").slice(1).join(" ")}\`\`\`\n\n:outbox_tray: **Output:**\n\`\`\`js\n${code}\`\`\``;
           message.edit(evaled)
     }
+
+    if (message.content.startsWith(prefix + 'embed')) {
+        let words = message.content.split(" ").slice(1).join(" ")
+        const embed = new RichEmbed()
+            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+            .setColor(0x0000FF)
+            .setDescription(`${words}`)
+            .setFooter(`ChronoBot`)
+            .setTimestamp()
+        message.edit(embed)
+    }
 });
 
 client.on('message', message => {
