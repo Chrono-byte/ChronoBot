@@ -19,7 +19,7 @@ client.on('message', message => {
             const embed = new Discord.RichEmbed()
                 .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
                 .setColor(0x0000FF)
-                .setDescription(`${message.content}`)
+                .setDescription(`\`\`\`${message.content}\`\`\``)
             message.edit({ embed: embed})
         }
     }
