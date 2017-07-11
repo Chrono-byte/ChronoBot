@@ -79,20 +79,13 @@ client.on('message', message => {
 
     if (message.content.startsWith(prefix + 'embed')) {
         let words = message.content.split(" ").slice(1).join(" ")
-        const embed = new RichEmbed()
+        const embed = new Discord.RichEmbed()
             .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
             .setDescription(`${words}`)
             .setFooter(`ChronoBot`)
             .setTimestamp()
-        message.edit(embed)
-    }
-});
-
-client.on('message', message => {
-    if(config.logging === "false") return;
-    if(config.logging === "true") {
-        console.log(`${message.author.username}  <  ${message.content}`)
+        message.edit({ embed: embed})
     }
 });
 
