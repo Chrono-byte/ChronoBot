@@ -30,38 +30,24 @@ client.on('message', message => {
 
    if (message.content.startsWith(prefix + 'info')) {
         console.log('[CONSOLE] pasting info!')
-        message.edit(`Server Count: ${client.guilds.size}\nUser Count: ${client.users.size}\n` + "**Response time**: " + (Date.now() - message.createdTimestamp) + "ms");
-    }
-   if (message.content.startsWith(prefix + 'online')) {
-        console.log('[CONSOLE] going online!')
-        message.edit("")
-        client.user.setGame('ONLINE! :)')
-        client.user.setStatus('online')
-    }
-
-   if (message.content.startsWith(prefix + 'idle')) {
-        console.log('[CONSOLE] idle')
-        message.edit("")
-        client.user.setGame('BRB! :)')
-        client.user.setStatus('idle')
-    }
-
-   if (message.content.startsWith(prefix + 'afk')) {
-        console.log('[CONSOLE] afk')
-        message.edit("")
-        client.user.setGame('AFK :(')
-        client.user.setStatus('dnd')
-    }
-
-   if (message.content.startsWith(prefix + 'steath')) {
-        console.log('[CONSOLE] steath active')
-        message.edit("steath mode active")
-        client.user.setStatus('invisible')
+        const embed = new Discord.RichEmbed()
+            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+            .setColor(0x0000FF)
+            .setDescription(`Server Count: ${client.guilds.size}\nUser Count: ${client.users.size}\n` + "**Response time**: " + (Date.now() - message.createdTimestamp) + "ms")
+            .setFooter(``)
+            .setTimestamp()
+        message.edit({ embed: embed})
     }
 
    if (message.content.startsWith(prefix + 'self')) {
         console.log('[CONSOLE] INFO POSTED')
-        message.edit(`${client.user.username} uses ChronoBot, a selfbot by Chronomly6#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
+        const embed = new Discord.RichEmbed()
+            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+            .setColor(0x0000FF)
+            .setDescription(`${client.user.username} uses ChronoBot, a selfbot by Chronomly6#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
+            .setFooter(``)
+            .setTimestamp()
+        message.edit({ embed: embed})
     }
 
     if (message.content.startsWith(prefix + 'eval')) {
@@ -74,7 +60,13 @@ client.on('message', message => {
         code = err.essage;
       }
       let evaled = `:inbox_tray: **Input:**\`\`\`js\n${message.content.split(" ").slice(1).join(" ")}\`\`\`\n\n:outbox_tray: **Output:**\n\`\`\`js\n${code}\`\`\``;
-          message.edit(evaled)
+        const embed = new Discord.RichEmbed()
+            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+            .setColor(0x0000FF)
+            .setDescription(`${evaled}`)
+            .setFooter(``)
+            .setTimestamp()
+        message.edit({ embed: embed})
     }
 
     if (message.content.startsWith(prefix + 'embed')) {
