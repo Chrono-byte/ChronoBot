@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const config = require('./config.json');
 let embedsay = "off"
 console.log("Loaded.")
-console.log(`Settings:\nPrefix: ${config.prefix}\nLog Settings: ${config.logging}`)
+console.log(`Settings:\nPrefix: ${config.prefix}`)
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
