@@ -14,22 +14,18 @@ client.on('message', message => {
     let prefix = config.prefix
 
    if (message.content.startsWith(prefix + 'shrug')) {
-        console.log('[CONSOLE] whatever')
         message.edit("¯\_(ツ)_/¯");
     }
 
    if (message.content.startsWith(prefix + 'tableflip')) {
-        console.log('[CONSOLE] flipping the table')
         message.edit("(╯°□°）╯︵ ┻━┻");
     }
 
    if (message.content.startsWith(prefix + 'unflip')) {
-        console.log('[CONSOLE] unflipping the table')
         message.edit("┬─┬﻿ ノ( ゜-゜ノ)");
     }
 
    if (message.content.startsWith(prefix + 'info')) {
-        console.log('[CONSOLE] pasting info!')
         const embed = new Discord.RichEmbed()
             .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
@@ -40,7 +36,6 @@ client.on('message', message => {
     }
 
    if (message.content.startsWith(prefix + 'self')) {
-        console.log('[CONSOLE] INFO POSTED')
         const embed = new Discord.RichEmbed()
             .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
