@@ -2,6 +2,7 @@ console.log("Booting...")
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
+let embedsay = "off"
 console.log("Loaded.")
 console.log(`Settings:\nPrefix: ${config.prefix}\nLog Settings: ${config.logging}`)
 
@@ -12,6 +13,16 @@ client.on('ready', () => {
 client.on('message', message => {
     if(message.author !== client.user) return;
     let prefix = config.prefix
+
+    if(message.content.startsWith("c/") !== true) {
+        if(embedsay === "on") {
+            const embed = new Discord.RichEmbed()
+                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+                .setColor(0x0000FF)
+                .setDescription(`${message.content}`)
+            message.edit({ embed: embed})
+        }
+    }
 
     if (message.content.startsWith(prefix + 'shrug')) {
         message.edit("¯\\_(ツ)_/¯");
@@ -64,15 +75,16 @@ client.on('message', message => {
         message.edit({ embed: embed})
     }
 
-    if (message.content.startsWith(prefix + 'embed')) {
-        let words = message.content.split(" ").slice(1).join(" ")
-        const embed = new Discord.RichEmbed()
-            .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
-            .setColor(0x0000FF)
-            .setDescription(`${words}`)
-            .setFooter(`ChronoBot`)
-            .setTimestamp()
-        message.edit({ embed: embed})
+    if(message.content.startsWith(prefix + "embed")) {
+        let choice = message.content.split(" ").slice(1).join(" ")
+        if(choice === "on") {
+            embedsay = "on"
+            message.edit("embeding is on")
+        }
+        if(choice === "off") {
+            embedsay = "off"
+            message.edit("embeding is off")
+        }
     }
 });
 
