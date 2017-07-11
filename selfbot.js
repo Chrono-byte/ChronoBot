@@ -13,19 +13,19 @@ client.on('message', message => {
     if(message.author !== client.user) return;
     let prefix = config.prefix
 
-   if (message.content.startsWith(prefix + 'shrug')) {
-        message.edit("¯\_(ツ)_/¯");
+    if (message.content.startsWith(prefix + 'shrug')) {
+        message.edit("¯\\_(ツ)_/¯");
     }
 
-   if (message.content.startsWith(prefix + 'tableflip')) {
+    if (message.content.startsWith(prefix + 'tableflip')) {
         message.edit("(╯°□°）╯︵ ┻━┻");
     }
 
-   if (message.content.startsWith(prefix + 'unflip')) {
+    if (message.content.startsWith(prefix + 'unflip')) {
         message.edit("┬─┬﻿ ノ( ゜-゜ノ)");
     }
 
-   if (message.content.startsWith(prefix + 'info')) {
+    if (message.content.startsWith(prefix + 'info')) {
         const embed = new Discord.RichEmbed()
             .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
@@ -35,7 +35,7 @@ client.on('message', message => {
         message.edit({ embed: embed})
     }
 
-   if (message.content.startsWith(prefix + 'self')) {
+    if (message.content.startsWith(prefix + 'self')) {
         const embed = new Discord.RichEmbed()
             .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
