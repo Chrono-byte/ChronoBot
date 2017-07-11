@@ -2,7 +2,6 @@ console.log("Booting...")
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
-const childProcess = require("child_process");
 console.log("Loaded.")
 console.log(`Settings:\nPrefix: ${config.prefix}\nLog Settings: ${config.logging}`)
 
