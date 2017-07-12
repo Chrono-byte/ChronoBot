@@ -14,14 +14,13 @@ client.on('message', message => {
     if(message.author !== client.user) return;
     let prefix = config.prefix
 
-    if(message.content.startsWith("c/") !== true) {
-        if(embedsay === "on") {
+    if(message.content.startsWith(">>")) {
+            let text = message.content.split(" ").slice(1).join(" ")
             const embed = new Discord.RichEmbed()
-                .setAuthor(`${message.author.tag}`, `${message.author.avatarURL}`)
+                .setAuthor(`Message`, `${message.author.avatarURL}`)
                 .setColor(0x0000FF)
-                .setDescription(`\`\`\`${message.content}\`\`\``)
+                .setDescription(`\`\`\`${text}\`\`\``)
             message.edit({ embed: embed})
-        }
     }
 
     if (message.content.startsWith(prefix + 'shrug')) {
@@ -83,18 +82,6 @@ client.on('message', message => {
             .setFooter(``)
             .setTimestamp()
         message.edit({ embed: embed})
-    }
-
-    if(message.content.startsWith(prefix + "embed")) {
-        let choice = message.content.split(" ").slice(1).join(" ")
-        if(choice === "on") {
-            embedsay = "on"
-            message.edit("embeding is on")
-        }
-        if(choice === "off") {
-            embedsay = "off"
-            message.edit("embeding is off")
-        }
     }
 });
 
