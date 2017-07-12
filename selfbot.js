@@ -17,8 +17,8 @@ client.on('message', message => {
     if(message.content.startsWith(">>")) {
             let text = message.content.split(" ").slice(1).join(" ")
             const embed = new Discord.RichEmbed()
-                .setAuthor(`Message`, "https://68.media.tumblr.com/0fc3976fab6e17644310d2c78a14977e/tumblr_inline_osxzcmjPPu1up8o7g_540.jpg")
-                .setDescription(`\`\`\`${text}\`\`\``)
+                .setAuthor(``, `${client.user.avatarURL}`)
+                .setDescription(`${text}`)
                 .setColor(0x0000FF)
             message.edit({ embed: embed})
     }
