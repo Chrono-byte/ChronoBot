@@ -17,9 +17,9 @@ client.on('message', message => {
     if(message.content.startsWith(">>")) {
             let text = message.content.split(" ").slice(1).join(" ")
             const embed = new Discord.RichEmbed()
-                .setAuthor(`Message`, `${message.author.avatarURL}`)
-                .setColor(0x0000FF)
+                .setAuthor(`Message`, "https://68.media.tumblr.com/0fc3976fab6e17644310d2c78a14977e/tumblr_inline_osxzcmjPPu1up8o7g_540.jpg")
                 .setDescription(`\`\`\`${text}\`\`\``)
+                .setColor(0x0000FF)
             message.edit({ embed: embed})
     }
 
@@ -59,7 +59,7 @@ client.on('message', message => {
         const embed = new Discord.RichEmbed()
             .setAuthor(`ChronoBot`, `https://cdn.discordapp.com/avatars/251383432331001856/c6a0ec56ad6e5f903412cfa86eb2c8a0.png?size=2048`)
             .setColor(0x0000FF)
-            .setDescription(`${client.user.username} uses ChronoBot, a selfbot by Chronomly6#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
+            .setDescription(`${client.user.username} uses ChronoBot, a selfbot by Chronomly#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
             .setFooter(``)
             .setTimestamp()
         message.edit({ embed: embed})
@@ -74,7 +74,7 @@ client.on('message', message => {
       } catch (err) {
         code = err.essage;
       }
-      let evaled = `:inbox_tray: **Input:**\`\`\`js\n${message.content.split(" ").slice(1).join(" ")}\`\`\`\n\n:outbox_tray: **Output:**\n\`\`\`js\n${code}\`\`\``;
+      let evaled = `:inbox_tray: **Input:**\`\`\`js\n${message.content.split(" ").slice(1).join(" ")}\`\`\`\n:outbox_tray: **Output:**\n\`\`\`js\n${code}\`\`\``;
         const embed = new Discord.RichEmbed()
             .setAuthor(`Eval`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
