@@ -28,7 +28,36 @@ client.on('message', message => {
     }
 
     if (message.content.startsWith(prefix + 'checkgame')) {
-        message.edit(`\`\`\`${client.user.presence.game.name}\`\`\``);
+        if(client.user.presence.game.name === null) {
+            const embed = new Discord.RichEmbed()
+                .setAuthor(`Game!`, `${message.author.avatarURL}`)
+                .setColor(0x0000FF)
+                .setDescription(`\`\`\`No game!\`\`\``)
+                .setFooter(``)
+                .setTimestamp()
+            message.edit({ embed: embed})
+        }
+        if(client.user.presence.game.name !== null) {
+        const embed = new Discord.RichEmbed()
+            .setAuthor(`Game!`, `${message.author.avatarURL}`)
+            .setColor(0x0000FF)
+            .setDescription(`\`\`\`${client.user.presence.game.name}\`\`\``)
+            .setFooter(``)
+            .setTimestamp()
+        message.edit({ embed: embed})
+        }
+    }
+
+    if (message.content.startsWith(prefix + 'setgame')) {
+        let game = message.content.split(" ").slice(1).join(" ")
+        client.user.setGame(game)
+        const embed = new Discord.RichEmbed()
+            .setAuthor(`Game Set!`, `${message.author.avatarURL}`)
+            .setColor(0x0000FF)
+            .setDescription(`game set to \`${game}\``)
+            .setFooter(``)
+            .setTimestamp()
+        message.edit({ embed: embed})
     }
 
     if (message.content.startsWith(prefix + 'tableflip')) {
