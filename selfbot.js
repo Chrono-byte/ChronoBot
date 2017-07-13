@@ -27,6 +27,10 @@ client.on('message', message => {
         message.edit("¯\\_(ツ)_/¯");
     }
 
+    if (message.content.startsWith(prefix + 'checkgame')) {
+        message.edit(`\`\`\`${client.user.presence.game.name}\`\`\``);
+    }
+
     if (message.content.startsWith(prefix + 'tableflip')) {
         message.edit("(╯°□°）╯︵ ┻━┻");
     }
