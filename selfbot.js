@@ -83,13 +83,13 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
     }
 
     if (message.content.startsWith(prefix + 'ping')) {
-        message.delete()
         const embed = new Discord.RichEmbed()
             .setAuthor(`Pong!`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
             .setDescription("**Response time**: " + (Date.now() - message.createdTimestamp) + "ms")
             .setFooter(``)
             .setTimestamp()
+        message.edit({embed: embed})
     }
 
     if (message.content.startsWith(prefix + 'stats')) {
