@@ -2,7 +2,7 @@ console.log("Booting...")
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
-let embedsay = "off"
+const oneLine = require('common-tags').oneLine;
 console.log("Loaded.")
 console.log(`Settings:\nPrefix: ${config.prefix}`)
 
@@ -25,6 +25,21 @@ client.on('message', message => {
 
     if (message.content.startsWith(prefix + 'shrug')) {
         message.edit("¯\\_(ツ)_/¯");
+    }
+
+    if (message.content.startsWith(prefix + 'server')) {
+        let guild = message.guild;
+        const embed = new Discord.RichEmbed()
+                .setAuthor(`Server Stats`, `${client.user.avatarURL}`)
+                .setDescription(`Guild: ${guild.id}
+Name: ${guild.name}
+Owner: ${guild.owner.user.tag} (${guild.owner.id})
+Members: ${guild.members.size}
+Bots: ${guild.members.filter(u => u.user.bot).size} (${Math.floor(guild.members.filter(u => u.user.bot).size / guild.members.size * 100)}%)
+Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.members.filter(u => !u.user.bot).size / guild.members.size * 100)}%)`)
+                .setColor(0x0000FF)
+                .setTimestamp()
+            message.edit({ embed: embed})
     }
 
     if (message.content.startsWith(prefix + 'checkgame')) {
@@ -69,13 +84,13 @@ client.on('message', message => {
     }
 
     if (message.content.startsWith(prefix + 'ping')) {
+        message.delete()
         const embed = new Discord.RichEmbed()
             .setAuthor(`Pong!`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
             .setDescription("**Response time**: " + (Date.now() - message.createdTimestamp) + "ms")
             .setFooter(``)
             .setTimestamp()
-        message.edit({ embed: embed})
     }
 
     if (message.content.startsWith(prefix + 'stats')) {
