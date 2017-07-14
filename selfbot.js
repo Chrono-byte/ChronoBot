@@ -36,8 +36,7 @@ client.on('message', message => {
                 .setFooter(``)
                 .setTimestamp()
             message.edit({ embed: embed})
-        }
-        if(client.user.presence.game.name !== null) {
+        } else {
         const embed = new Discord.RichEmbed()
             .setAuthor(`Game!`, `${message.author.avatarURL}`)
             .setColor(0x0000FF)
