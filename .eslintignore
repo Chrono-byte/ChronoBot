@@ -8,4 +8,5 @@
 *.txt
 *.sh
 *.bat
+config.json.example
 LICENSE
