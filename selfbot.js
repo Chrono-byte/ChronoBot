@@ -61,16 +61,6 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
     message.edit({ embed })
   }
 
-  if (message.content.startsWith(prefix + 'stats')) {
-    const embed = new Discord.RichEmbed()
-      .setAuthor('Stats', `${message.author.avatarURL}`)
-      .setColor(0x0000FF)
-      .setDescription(`Server Count: ${client.guilds.size}\nUser Count: ${client.users.size}\n **Response time**: (Date.now() - message.createdTimestamp) + ms`)
-      .setFooter('')
-      .setTimestamp()
-    message.edit({ embed })
-  }
-
   if (message.content.startsWith(prefix + 'info')) {
     const embed = new Discord.RichEmbed()
       .setAuthor('ChronoBot', 'https://cdn.discordapp.com/avatars/251383432331001856/c6a0ec56ad6e5f903412cfa86eb2c8a0.png?size=2048')
