@@ -45,16 +45,6 @@ client.on('message', message => {
       .setTimestamp()
     message.edit({ embed })
   }
-
-  if (message.content.startsWith(prefix + 'info')) {
-    const embed = new Discord.RichEmbed()
-      .setAuthor('ChronoBot', 'https://cdn.discordapp.com/avatars/251383432331001856/c6a0ec56ad6e5f903412cfa86eb2c8a0.png?size=2048')
-      .setColor(0x0000FF)
-      .setDescription(`${client.user.username} uses ChronoBot, a selfbot by Chronomly#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
-      .setFooter('')
-      .setTimestamp()
-    message.edit({ embed })
-  }
 });
 
 console.log('Logging in!')

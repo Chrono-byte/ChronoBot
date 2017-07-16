@@ -1,0 +1,32 @@
+//eslint-disable-next-line
+const commando = require('discord.js-commando');
+const oneLine = require('common-tags').oneLine;
+const { RichEmbed } = require('discord.js');
+
+module.exports = class InfoCommand extends commando.Command {
+  constructor(bot) {
+    super(bot, {
+      name: 'info',
+      aliases: ['selfbot', 'selfinfo', 'botinfo'],
+      group: 'general',
+      memberName: 'stats',
+      description: 'Sends selfbot information.',
+      details: oneLine `
+      Want to show off your seflbot to your friends?
+      This command shows selfbot information.
+			`,
+      examples: ['stats']
+    });
+  }
+
+  //eslint-disable-next-line class-methods-use-this
+  async run(message) {
+    const embed = new RichEmbed()
+      .setAuthor('ChronoBot', 'https://cdn.discordapp.com/avatars/251383432331001856/c6a0ec56ad6e5f903412cfa86eb2c8a0.png?size=2048')
+      .setColor(0x0000FF)
+      .setDescription(`${this.client.user.username} uses ChronoBot, a selfbot by Chronomly#8108 and TJDoesCode#6088\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
+      .setFooter('')
+      .setTimestamp()
+    message.edit({ embed })
+  }
+};
