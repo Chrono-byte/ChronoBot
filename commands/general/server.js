@@ -36,7 +36,7 @@ module.exports = class ServerCommand extends commando.Command {
 **Roles**: ${guild.roles.size}`)
     } else if (message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
       const embed = new RichEmbed()
-        .setAuthor('Server Stats', `${this.client.user.avatarURL}`)
+        .setAuthor('Server Stats', `${guild.iconURL}`)
         .setDescription(`**Guild**: ${guild.id}
 **Name**: ${guild.name}
 **Owner**: ${guild.owner.user.tag} (${guild.owner.id})
