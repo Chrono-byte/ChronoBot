@@ -87,6 +87,8 @@ client
     }
   })
   .on('message', (message) => {
+    if (message.author !== client.user) return
+
     if (message.content.startsWith('>>')) {
       let text = message.content.split('').slice(2).join('')
       const embed = new RichEmbed()
