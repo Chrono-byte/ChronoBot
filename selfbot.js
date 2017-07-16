@@ -26,7 +26,7 @@ Bots: ${guild.members.filter(u => u.user.bot).size} (${Math.floor(guild.members.
 Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.members.filter(u => !u.user.bot).size / guild.members.size * 100)}%)`)
       .setColor(0x0000FF)
       .setTimestamp()
-    message.edit({ embed: embed })
+    message.edit({ embed })
   }
 
   if (message.content.startsWith(prefix + 'checkgame')) {
@@ -37,7 +37,7 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
         .setDescription('```No game!```')
         .setFooter('')
         .setTimestamp()
-      message.edit({ embed: embed })
+      message.edit({ embed })
     } else {
       const embed = new Discord.RichEmbed()
         .setAuthor('Game!', `${message.author.avatarURL}`)
@@ -45,7 +45,7 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
         .setDescription(`\`\`\`${client.user.presence.game.name}\`\`\``)
         .setFooter('')
         .setTimestamp()
-      message.edit({ embed: embed })
+      message.edit({ embed })
     }
   }
 
@@ -58,7 +58,7 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
       .setDescription(`game set to \`${game}\``)
       .setFooter('')
       .setTimestamp()
-    message.edit({ embed: embed })
+    message.edit({ embed })
   }
 
   if (message.content.startsWith(prefix + 'stats')) {
@@ -68,7 +68,7 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
       .setDescription(`Server Count: ${client.guilds.size}\nUser Count: ${client.users.size}\n **Response time**: (Date.now() - message.createdTimestamp) + ms`)
       .setFooter('')
       .setTimestamp()
-    message.edit({ embed: embed })
+    message.edit({ embed })
   }
 
   if (message.content.startsWith(prefix + 'info')) {
@@ -78,7 +78,7 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
       .setDescription(`${client.user.username} uses ChronoBot, a selfbot by Chronomly#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
       .setFooter('')
       .setTimestamp()
-    message.edit({ embed: embed })
+    message.edit({ embed })
   }
 });
 
