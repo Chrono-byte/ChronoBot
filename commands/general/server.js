@@ -7,7 +7,7 @@ module.exports = class ServerCommand extends commando.Command {
   constructor(bot) {
     super(bot, {
       name: 'server',
-      aliases: ['userstats', 'servers', 'channels'],
+      aliases: ['serverstats', 'serverinfo'],
       group: 'general',
       memberName: 'server',
       description: 'Sends server statistics.',
