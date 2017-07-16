@@ -19,6 +19,6 @@ module.exports = class ShrugCommand extends commando.Command {
 
   //eslint-disable-next-line class-methods-use-this
   async run(message) {
-    message.edit('¯\\_(ツ)_/¯');
+    message.edit('¯\\_(ツ)_/¯')
   }
 };

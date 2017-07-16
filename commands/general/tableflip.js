@@ -19,6 +19,6 @@ module.exports = class TableflipCommand extends commando.Command {
 
   //eslint-disable-next-line class-methods-use-this
   async run(message) {
-    message.edit('(╯°□°）╯︵ ┻━┻');
+    message.edit('(╯°□°）╯︵ ┻━┻')
   }
 };

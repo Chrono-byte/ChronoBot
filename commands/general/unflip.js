@@ -19,6 +19,6 @@ module.exports = class UnflipCommand extends commando.Command {
 
   //eslint-disable-next-line class-methods-use-this
   async run(message) {
-    message.edit('┬─┬﻿ ノ( ゜-゜ノ)');
+    message.edit('┬─┬﻿ ノ( ゜-゜ノ)')
   }
 };
