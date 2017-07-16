@@ -14,19 +14,6 @@ client.on('message', message => {
   if (message.author !== client.user) return;
   let prefix = config.prefix
 
-  if (message.content.startsWith('>>')) {
-    let text = message.content.split(' ').slice(1).join(' ')
-    const embed = new Discord.RichEmbed()
-      .setAuthor('', `${client.user.avatarURL}`)
-      .setDescription(`${text}`)
-      .setColor(0x0000FF)
-    message.edit({ embed: embed })
-  }
-
-  if (message.content.startsWith(prefix + 'shrug')) {
-    message.edit('¯\\_(ツ)_/¯');
-  }
-
   if (message.content.startsWith(prefix + 'server')) {
     let guild = message.guild;
     const embed = new Discord.RichEmbed()
@@ -74,24 +61,6 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
     message.edit({ embed: embed })
   }
 
-  if (message.content.startsWith(prefix + 'tableflip')) {
-    message.edit('(╯°□°）╯︵ ┻━┻');
-  }
-
-  if (message.content.startsWith(prefix + 'unflip')) {
-    message.edit('┬─┬﻿ ノ( ゜-゜ノ)');
-  }
-
-  if (message.content.startsWith(prefix + 'ping')) {
-    const embed = new Discord.RichEmbed()
-      .setAuthor('Pong!', `${message.author.avatarURL}`)
-      .setColor(0x0000FF)
-      .setDescription('**Response time**: ' + (Date.now() - message.createdTimestamp) + 'ms')
-      .setFooter('')
-      .setTimestamp()
-    message.edit({ embed: embed })
-  }
-
   if (message.content.startsWith(prefix + 'stats')) {
     const embed = new Discord.RichEmbed()
       .setAuthor('Stats', `${message.author.avatarURL}`)
@@ -107,27 +76,6 @@ Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.membe
       .setAuthor('ChronoBot', 'https://cdn.discordapp.com/avatars/251383432331001856/c6a0ec56ad6e5f903412cfa86eb2c8a0.png?size=2048')
       .setColor(0x0000FF)
       .setDescription(`${client.user.username} uses ChronoBot, a selfbot by Chronomly#8108\nYou can download it here: https://github.com/Chronomly6/ChronoBot`)
-      .setFooter('')
-      .setTimestamp()
-    message.edit({ embed: embed })
-  }
-
-  if (message.content.startsWith(prefix + 'eval')) {
-    let code;
-    try {
-      //eslint-disable-next-line no-useless-escape
-      if (message.content.includes('token') || message.content.includes('\`token\`')) return message.channel.send('The message was censored because it contained sensitive information!');
-      //eslint-disable-next-line no-eval
-      code = eval(message.content.split(' ').slice(1).join(' '));
-      //if (typeof code !== "string") code = util.inspect(code);
-    } catch (err) {
-      code = err.essage;
-    }
-    let evaled = `:inbox_tray: **Input:**\`\`\`js\n${message.content.split(' ').slice(1).join(' ')}\`\`\`\n:outbox_tray: **Output:**\n\`\`\`js\n${code}\`\`\``;
-    const embed = new Discord.RichEmbed()
-      .setAuthor('Eval', `${message.author.avatarURL}`)
-      .setColor(0x0000FF)
-      .setDescription(`${evaled}`)
       .setFooter('')
       .setTimestamp()
     message.edit({ embed: embed })
