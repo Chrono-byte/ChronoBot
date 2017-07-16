@@ -11,6 +11,7 @@ const client = new commando.Client({
 const path = require('path');
 const sqlite = require('sqlite');
 const oneLine = require('common-tags').oneLine;
+const { RichEmbed } = require('discord.js');
 console.log('Requires initialized.');
 
 client.registry
@@ -83,6 +84,16 @@ client
         User: ${msg.author.tag} (${msg.author.id})
         Command: ${command.groupID}:${command.memberName}
         Message: "${msg.content}"`)
+    }
+  })
+  .on('message', (message) => {
+    if (message.content.startsWith('>>')) {
+      let text = message.content.split('').slice(2).join('')
+      const embed = new RichEmbed()
+        .setAuthor('', `${client.user.avatarURL}`)
+        .setDescription(`${text}`)
+        .setColor(0x0000FF)
+      message.edit({ embed })
     }
   })
 
