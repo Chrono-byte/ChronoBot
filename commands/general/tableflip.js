@@ -13,7 +13,7 @@ module.exports = class TableflipCommand extends commando.Command {
       details: oneLine `
       Feelin ANGERY? Use this command to flip a table!
 			`,
-      examples: ['shrug']
+      examples: ['tableflip']
     });
   }
 

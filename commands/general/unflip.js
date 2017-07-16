@@ -13,7 +13,7 @@ module.exports = class UnflipCommand extends commando.Command {
       details: oneLine `
       Feelin unangery? Use this command to unflip a table.
 			`,
-      examples: ['shrug']
+      examples: ['unflip']
     });
   }
 

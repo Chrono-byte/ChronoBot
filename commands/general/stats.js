@@ -15,7 +15,7 @@ module.exports = class StatsCommand extends commando.Command {
       Want to know how many servers you're on?
       This command shows user statistics.
 			`,
-      examples: ['shrug']
+      examples: ['stats']
     });
   }
 
