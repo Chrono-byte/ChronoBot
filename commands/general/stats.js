@@ -21,12 +21,22 @@ module.exports = class StatsCommand extends commando.Command {
 
   //eslint-disable-next-line class-methods-use-this
   async run(message) {
-    const embed = new RichEmbed()
-      .setAuthor('Stats', `${message.author.avatarURL}`)
-      .setColor(0x0000FF)
-      .setDescription(`**Server Count**: ${this.client.guilds.size}\n**User Count**: ${this.client.users.size}\n **Response time**: ${this.client.ping ? `${Math.abs(Math.floor(this.client.ping))}ms` : 'Ping can not currently be measured.'}`)
-      .setFooter('')
-      .setTimestamp()
-    message.edit({ embed })
+    if (!message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
+      message.edit(`__**User Stats**__
+**Server Count**: ${this.client.guilds.size}
+**User Count**: ${this.client.users.size}
+**Response time**: ${this.client.ping ? `${Math.abs(Math.floor(this.client.ping))}ms` : 'Ping can not currently be measured.'}`)
+    } else if (message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
+      const embed = new RichEmbed()
+        .setAuthor('User Stats', `${message.author.avatarURL}`)
+        .setColor(0x0000FF)
+        .setDescription(`**Server Count**: ${this.client.guilds.size}
+**User Count**: ${this.client.users.size}
+**Response time**: ${this.client.ping ? `${Math.abs(Math.floor(this.client.ping))}ms` : 'Ping can not currently be measured.'}`)
+        .setTimestamp()
+      message.edit({ embed })
+    } else {
+      message.edit('Unknown permissions error.')
+    }
   }
 };
