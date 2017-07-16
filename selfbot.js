@@ -14,21 +14,6 @@ client.on('message', message => {
   if (message.author !== client.user) return;
   let prefix = config.prefix
 
-  if (message.content.startsWith(prefix + 'server')) {
-    let guild = message.guild;
-    const embed = new Discord.RichEmbed()
-      .setAuthor('Server Stats', `${client.user.avatarURL}`)
-      .setDescription(`Guild: ${guild.id}
-Name: ${guild.name}
-Owner: ${guild.owner.user.tag} (${guild.owner.id})
-Members: ${guild.members.size}
-Bots: ${guild.members.filter(u => u.user.bot).size} (${Math.floor(guild.members.filter(u => u.user.bot).size / guild.members.size * 100)}%)
-Humans: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.members.filter(u => !u.user.bot).size / guild.members.size * 100)}%)`)
-      .setColor(0x0000FF)
-      .setTimestamp()
-    message.edit({ embed })
-  }
-
   if (message.content.startsWith(prefix + 'checkgame')) {
     if (client.user.presence.game.name === null) {
       const embed = new Discord.RichEmbed()
