@@ -24,7 +24,7 @@ module.exports = class StatsCommand extends commando.Command {
     const embed = new RichEmbed()
       .setAuthor('Stats', `${message.author.avatarURL}`)
       .setColor(0x0000FF)
-      .setDescription(`**Server Count**: ${this.client.guilds.size}\n**User Count**: ${this.client.users.size}\n **Response time**: ${Math.abs(Math.floor(this.client.ping))}ms`)
+      .setDescription(`**Server Count**: ${this.client.guilds.size}\n**User Count**: ${this.client.users.size}\n **Response time**: ${this.client.ping ? `${Math.abs(Math.floor(this.client.ping))}ms` : 'Ping can not currently be measured.'}`)
       .setFooter('')
       .setTimestamp()
     message.edit({ embed })
