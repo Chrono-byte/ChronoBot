@@ -9,7 +9,7 @@ module.exports = class InfoCommand extends commando.Command {
       name: 'info',
       aliases: ['selfbot', 'selfinfo', 'botinfo'],
       group: 'general',
-      memberName: 'stats',
+      memberName: 'info',
       description: 'Sends selfbot information.',
       details: oneLine `
       Want to show off your seflbot to your friends?
