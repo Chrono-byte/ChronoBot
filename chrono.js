@@ -90,12 +90,25 @@ client
     if (message.author !== client.user) return
 
     if (message.content.startsWith('>>')) {
-      let text = message.content.split('').slice(2).join('')
-      const embed = new RichEmbed()
-        .setAuthor('', `${client.user.avatarURL}`)
-        .setDescription(`${text}`)
-        .setColor(0x0000FF)
-      message.edit({ embed })
+      if (message.guild.member(client.user).hasPermission('EMBED_LINKS')) {
+        let text = message.content.split('').slice(2).join('')
+        const embed = new RichEmbed()
+          .setAuthor('', `${client.user.avatarURL}`)
+          .setDescription(`${text}`)
+          .setColor(0x0000FF)
+        message.edit({ embed })
+        //eslint-disable-next-line no-negated-condition
+      } else if (!message.guild.member(client.user).hasPermission('EMBED_LINKS')) {
+        message.edit('Missing permissions to send embeds.')
+          .then((msg) => {
+            msg.delete(5000)
+          })
+      } else {
+        message.edit('Unknown permissions error.')
+          .then((msg) => {
+            msg.delete(5000)
+          })
+      }
     }
   })
 
