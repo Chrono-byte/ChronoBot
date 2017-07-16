@@ -29,7 +29,11 @@ module.exports = class ServerCommand extends commando.Command {
 **Owner**: ${guild.owner.user.tag} (${guild.owner.id})
 **Members**: ${guild.members.size}
 **Bots**: ${guild.members.filter(u => u.user.bot).size} (${Math.floor(guild.members.filter(u => u.user.bot).size / guild.members.size * 100)}%)
-**Humans**: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.members.filter(u => !u.user.bot).size / guild.members.size * 100)}%)`)
+**Humans**: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.members.filter(u => !u.user.bot).size / guild.members.size * 100)}%)
+**Text Channels**: ${guild.channels.filter(channel => channel.type === 'text').size}
+**Voice Channels**: ${guild.channels.filter(channel => channel.type === 'voice').size}
+**Default Channel**: ${guild.defaultChannel}
+**Roles**: ${guild.roles.size}`)
     } else if (message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
       const embed = new RichEmbed()
         .setAuthor('Server Stats', `${this.client.user.avatarURL}`)
@@ -38,7 +42,11 @@ module.exports = class ServerCommand extends commando.Command {
 **Owner**: ${guild.owner.user.tag} (${guild.owner.id})
 **Members**: ${guild.members.size}
 **Bots**: ${guild.members.filter(u => u.user.bot).size} (${Math.floor(guild.members.filter(u => u.user.bot).size / guild.members.size * 100)}%)
-**Humans**: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.members.filter(u => !u.user.bot).size / guild.members.size * 100)}%)`)
+**Humans**: ${guild.members.filter(u => !u.user.bot).size} (${Math.floor(guild.members.filter(u => !u.user.bot).size / guild.members.size * 100)}%)
+**Text Channels**: ${guild.channels.filter(channel => channel.type === 'text').size}
+**Voice Channels**: ${guild.channels.filter(channel => channel.type === 'voice').size}
+**Default Channel**: ${guild.defaultChannel}
+**Roles**: ${guild.roles.size}`)
         .setColor(0x0000FF)
         .setTimestamp()
       message.edit({ embed })
