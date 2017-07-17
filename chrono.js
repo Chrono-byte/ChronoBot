@@ -3,7 +3,7 @@ const config = require('./config.json');
 const commando = require('discord.js-commando');
 const client = new commando.Client({
   owner: [config.owner],
-	
+  selfbot: true,
   commandPrefix: config.prefix,
   unknownCommandResponse: false
 });
