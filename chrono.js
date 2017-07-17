@@ -2,8 +2,8 @@
 const config = require('./config.json');
 const commando = require('discord.js-commando');
 const client = new commando.Client({
-  //remove the second ID once this is out of testing
   owner: [config.owner],
+	
   commandPrefix: config.prefix,
   unknownCommandResponse: false
 });
