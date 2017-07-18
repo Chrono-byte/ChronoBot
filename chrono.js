@@ -115,6 +115,6 @@ client
 
 client.login(config.token).catch(console.error);
 
-process.on('unhandledRejection', err => {
-  console.error('Uncaught Promise Error: \n' + err.stack);
+process.on('unhandledRejection', err => {	
+	nsole.error(`Uncaught Promise Error: \n${err.stack}`);
 });
