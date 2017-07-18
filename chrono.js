@@ -1,4 +1,5 @@
 //eslint-disable-next-line
+console.log('Starting...');
 const config = require('./config.json');
 const commando = require('discord.js-commando');
 const client = new commando.Client({
@@ -7,12 +8,11 @@ const client = new commando.Client({
   commandPrefix: config.prefix,
   unknownCommandResponse: false
 });
-//const defclient = new Discord.Client();
 const path = require('path');
 const sqlite = require('sqlite');
 const oneLine = require('common-tags').oneLine;
 const { RichEmbed } = require('discord.js');
-console.log('Requires initialized.');
+console.log('Packages initialized.');
 
 client.registry
   .registerGroups([
@@ -26,7 +26,7 @@ client.registry
   .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.setProvider(sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new commando.SQLiteProvider(db))).catch(console.error);
-console.log('Commando set up.');
+console.log('Command framework set up.');
 console.log('Awaiting log in.');
 
 client
