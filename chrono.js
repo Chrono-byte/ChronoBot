@@ -115,6 +115,7 @@ client
 
 client.login(config.token).catch(console.error);
 
-process.on('unhandledRejection', err => {	
-	nsole.error(`Uncaught Promise Error: \n${err.stack}`);
+process.on('unhandledRejection', err => {
+  console.error('Something went wrong! \nPlease show the message below to a developer. \nYou can contact the developers here: https://discord.gg/fu4zS9')
+  console.error(`Uncaught Promise Error: \n${err.stack}`);
 });
