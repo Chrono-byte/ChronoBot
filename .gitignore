@@ -1,2 +1,3 @@
 config.json
 settings.sqlite3
+node_modules/*
