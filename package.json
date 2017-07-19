@@ -1,0 +1,29 @@
+{
+  "name": "chronobot",
+  "version": "1.0.0",
+  "description": "A simple Discord selfbot written in JavaScript with the Discord.js API wrapper and the Discord.js-Commando framework",
+  "main": "selfbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chronomly6/ChronoBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chronomly6/ChronoBot/issues"
+  },
+  "homepage": "https://github.com/Chronomly6/ChronoBot#readme",
+  "dependencies": {
+    "bufferutil": "^3.0.2",
+    "discord.js": "^11.1.0",
+    "discord.js-commando": "^0.9.0",
+    "erlpack": "github:hammerandchisel/erlpack",
+    "libsodium-wrappers": "^0.5.2",
+    "sqlite": "^2.8.0",
+    "uws": "^0.14.5"
+  },
+  "devDependencies": {}
+}
