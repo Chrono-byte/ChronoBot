@@ -14,7 +14,7 @@
   "contributors": [
     "TJDoesCode#6088 <tjdoescode@gmail.com> (https://github.com/TJDoesCode)"
   ],
-  "license": "GNU AGPL-3.0",
+  "license": "(AGPL-3.0)",
   "bugs": {
     "url": "https://github.com/Chronomly6/ChronoBot/issues"
   },
@@ -26,6 +26,7 @@
     "erlpack": "github:hammerandchisel/erlpack",
     "libsodium-wrappers": "^0.5.2",
     "sqlite": "^2.8.0",
+    "sqlite3": "^3.1.8",
     "uws": "^0.14.5"
   },
   "devDependencies": {}
