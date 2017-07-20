@@ -10,8 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/Chronomly6/ChronoBot.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Chronomoly#8108 <smorebtofficial@gmail.com> (https://github.com/Chronomly6)",
+  "contributors": [
+    "TJDoesCode#6088 <tjdoescode@gmail.com> (https://github.com/TJDoesCode)"
+  ],
+  "license": "GNU AGPL-3.0",
   "bugs": {
     "url": "https://github.com/Chronomly6/ChronoBot/issues"
   },
