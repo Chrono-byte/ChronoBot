@@ -21,12 +21,26 @@ module.exports = class StatsCommand extends commando.Command {
 
   //eslint-disable-next-line class-methods-use-this
   async run(message) {
-    if (!message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
-      message.edit(`__**User Stats**__
+    if (message.guild) {
+      if (!message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
+        message.edit(`__**User Stats**__
 **Server Count**: ${this.client.guilds.size}
 **User Count**: ${this.client.users.size}
 **Response time**: ${this.client.ping ? `${Math.abs(Math.floor(this.client.ping))}ms` : 'Ping can not currently be measured.'}`)
-    } else if (message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
+      } else if (message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
+        const embed = new RichEmbed()
+          .setAuthor('User Stats', `${message.author.avatarURL}`)
+          .setColor(0x0000FF)
+          .setDescription(`**Server Count**: ${this.client.guilds.size}
+**User Count**: ${this.client.users.size}
+**Response time**: ${this.client.ping ? `${Math.abs(Math.floor(this.client.ping))}ms` : 'Ping can not currently be measured.'}`)
+          .setTimestamp()
+        message.edit({ embed })
+      } else {
+        message.edit('Unknown permissions error.')
+      }
+      //eslint-disable-next-line no-negated-condition
+    } else if (!message.guild) {
       const embed = new RichEmbed()
         .setAuthor('User Stats', `${message.author.avatarURL}`)
         .setColor(0x0000FF)

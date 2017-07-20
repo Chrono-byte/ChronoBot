@@ -21,9 +21,10 @@ module.exports = class ServerCommand extends commando.Command {
 
   //eslint-disable-next-line class-methods-use-this
   async run(message) {
-    let guild = message.guild
-    if (!message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
-      message.edit(`__**Server Stats**__
+    if (message.guild) {
+      let guild = message.guild
+      if (!message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
+        message.edit(`__**Server Stats**__
 **Guild**: ${guild.id}
 **Name**: ${guild.name}
 **Owner**: ${guild.owner.user.tag} (${guild.owner.id})
@@ -34,10 +35,10 @@ module.exports = class ServerCommand extends commando.Command {
 **Voice Channels**: ${guild.channels.filter(channel => channel.type === 'voice').size}
 **Default Channel**: ${guild.defaultChannel}
 **Roles**: ${guild.roles.size}`)
-    } else if (message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
-      const embed = new RichEmbed()
-        .setAuthor('Server Stats', `${guild.iconURL}`)
-        .setDescription(`**Guild**: ${guild.id}
+      } else if (message.guild.member(this.client.user).hasPermission('EMBED_LINKS')) {
+        const embed = new RichEmbed()
+          .setAuthor('Server Stats', `${guild.iconURL}`)
+          .setDescription(`**Guild**: ${guild.id}
 **Name**: ${guild.name}
 **Owner**: ${guild.owner.user.tag} (${guild.owner.id})
 **Members**: ${guild.members.size}
@@ -47,9 +48,15 @@ module.exports = class ServerCommand extends commando.Command {
 **Voice Channels**: ${guild.channels.filter(channel => channel.type === 'voice').size}
 **Default Channel**: ${guild.defaultChannel}
 **Roles**: ${guild.roles.size}`)
-        .setColor(0x0000FF)
-        .setTimestamp()
-      message.edit({ embed })
+          .setColor(0x0000FF)
+          .setTimestamp()
+        message.edit({ embed })
+      } else {
+        message.edit('Unknown permissions error.')
+      }
+      //eslint-disable-next-line no-negated-condition
+    } else if (!message.guild) {
+      message.edit('This is a DM. DMs do not have server info. \nPlease run this command in a server.')
     } else {
       message.edit('Unknown permissions error.')
     }
