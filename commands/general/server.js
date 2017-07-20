@@ -15,7 +15,7 @@ module.exports = class ServerCommand extends commando.Command {
       Want to know how many bots are on the current server?
       This command shows server statistics.
 			`,
-      examples: ['shrug']
+      examples: ['server']
     });
   }
 

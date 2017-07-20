@@ -15,7 +15,7 @@ module.exports = class InfoCommand extends commando.Command {
       Want to show off your seflbot to your friends?
       This command shows selfbot information.
 			`,
-      examples: ['stats']
+      examples: ['info']
     });
   }
 
