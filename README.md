@@ -4,9 +4,9 @@ A discord selfbot written in javascript using discord.js!
 
 # How to Use!
 
-download it, if you dont know how or need general support with the selfbot, join [My Discord Server!](https://discord.gg/YH2RV2P)
+download it, if you dont know how to download it or need general support with the selfbot, join [My Discord Server!](https://discord.gg/YH2RV2P)
 
-put your token, user id, and prefix into `config.json.example` then rename it to `config.json`
+put your token, user id, and prefix into `config.json.example` then rename it to `config.json`, if you dont know how to get your token join [My Discord Server!](https://discord.gg/YH2RV2P)
 
 # How to get nodejs!
 
