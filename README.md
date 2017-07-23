@@ -1,6 +1,6 @@
 # ChronoBot
 
-A discord selfbot written in javascript using discord.js!
+A discord selfbot written in javascript using discord.js!, [Support Server!](https://discord.gg/YH2RV2P)
 
 # How to Use!
 
