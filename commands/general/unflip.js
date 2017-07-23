@@ -13,12 +13,18 @@ module.exports = class UnflipCommand extends commando.Command {
       details: oneLine `
       Feelin unangery? Use this command to unflip a table.
 			`,
-      examples: ['unflip']
+      examples: ['unflip'],
+      args: [{
+        key: 'toUnflip',
+        label: 'text',
+        prompt: 'Why would you like to unflip?',
+        type: 'string',
+      }]
     });
   }
 
   //eslint-disable-next-line class-methods-use-this
-  async run(message) {
-    message.edit('┬─┬﻿ ノ( ゜-゜ノ)')
+  async run(message, args) {
+    message.edit(`┬─┬﻿ ノ( ゜-゜ノ), ${args.toUnflip}`)
   }
 };

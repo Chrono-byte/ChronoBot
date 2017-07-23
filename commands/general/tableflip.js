@@ -13,12 +13,18 @@ module.exports = class TableflipCommand extends commando.Command {
       details: oneLine `
       Feelin ANGERY? Use this command to flip a table!
 			`,
-      examples: ['tableflip']
+      examples: ['tableflip'],
+      args: [{
+        key: 'toflip',
+        label: 'text',
+        prompt: 'Why would you like to flip?',
+        type: 'string',
+      }]
     });
   }
 
   //eslint-disable-next-line class-methods-use-this
-  async run(message) {
-    message.edit('(╯°□°）╯︵ ┻━┻')
+  async run(message, args) {
+    message.edit(`(╯°□°）╯︵ ┻━┻, ${args.toflip}`)
   }
 };

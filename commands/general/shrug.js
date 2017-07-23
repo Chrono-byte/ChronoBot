@@ -13,12 +13,18 @@ module.exports = class ShrugCommand extends commando.Command {
       details: oneLine `
       Feelin kinda meh? Use this command to shrug.
 			`,
-      examples: ['shrug']
+      examples: ['shrug'],
+      args: [{
+        key: 'toShrug',
+        label: 'text',
+        prompt: 'Why would you like to shrug?',
+        type: 'string',
+      }]
     });
   }
 
   //eslint-disable-next-line class-methods-use-this
-  async run(message) {
-    message.edit('¯\\_(ツ)_/¯')
+  async run(message, args) {
+    message.edit(`¯\\_(ツ)_/¯, ${args.toShrug}`)
   }
 };
