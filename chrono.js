@@ -18,7 +18,8 @@ client.registry
   .registerGroups([
     ['general', 'general'],
     ['misc', 'Miscellaneous'],
-    ['fun', 'Fun']
+    ['fun', 'Fun'],
+    [`control`, `Control`]
   ])
 
   .registerDefaults()
@@ -26,7 +27,7 @@ client.registry
   .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.setProvider(sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new commando.SQLiteProvider(db))).catch(console.error);
-console.log('Command framework set up.');
+console.log('Commando framework set up.');
 console.log('Awaiting log in.');
 
 client
@@ -88,14 +89,13 @@ client
   })
   .on('message', (message) => {
     if (message.author !== client.user) return
-
     if (message.content.startsWith('>>')) {
       if (message.guild.member(client.user).hasPermission('EMBED_LINKS')) {
         let text = message.content.split('').slice(2).join('')
         const embed = new RichEmbed()
           .setAuthor('', `${client.user.avatarURL}`)
           .setDescription(`${text}`)
-          .setColor(0x0000FF)
+          .setColor(3447003)
         message.edit({ embed })
         //eslint-disable-next-line no-negated-condition
       } else if (!message.guild.member(client.user).hasPermission('EMBED_LINKS')) {
