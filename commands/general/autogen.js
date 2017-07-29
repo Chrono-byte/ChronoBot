@@ -27,7 +27,7 @@ __**Server Rules:**__
 
 :one::one: **Do not** beg for staff. You **earn** a staff position. Begging is not earning.
 
-:one::two: __**NO SELFBOTS**__ *(except if you're a developer)*
+:one::two: __**NO SELFBOTS**__ *(except if you're a moderator)*
 
 :one::three: **Just because it isn't listed above doesn't mean it isn't a rule.** Any staff member can tell you to stop doing anything. At that point, it becomes a rule. If you continue, punishments may be taken.
 
