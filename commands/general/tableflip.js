@@ -18,7 +18,7 @@ module.exports = class TableflipCommand extends commando.Command {
         key: 'toflip',
         label: 'text',
         prompt: 'Why would you like to flip?',
-        type: 'string',
+        type: 'string'
       }]
     });
   }

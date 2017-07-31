@@ -1,7 +1,6 @@
 //eslint-disable-next-line
 const commando = require('discord.js-commando');
 const oneLine = require('common-tags').oneLine;
-const { RichEmbed } = require('discord.js');
 
 module.exports = class PurgeCommand extends commando.Command {
   constructor(client) {
@@ -34,11 +33,12 @@ module.exports = class PurgeCommand extends commando.Command {
   async run(message, args) {
     let messagecount = parseInt(args.toPrune[0]);
     message.channel.fetchMessages({
-            limit: 100
-        }).then(messages => {
-            let msg_array = messages.array();
-            msg_array = msg_array.filter(m => m.author.id === this.client.user.id);
-            msg_array.length = messagecount + 1;
-            msg_array.map(m => m.delete().catch(console.error));
-        });
-}}
+      limit: 100
+    }).then(messages => {
+      let msgArray = messages.array();
+      msgArray = msgArray.filter(m => m.author.id === this.client.user.id);
+      msgArray.length = messagecount + 1;
+      msgArray.map(m => m.delete().catch(console.error));
+    });
+  }
+}

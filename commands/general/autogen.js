@@ -1,8 +1,7 @@
 //eslint-disable-next-line
 const commando = require('discord.js-commando');
 const oneLine = require('common-tags').oneLine;
-const { RichEmbed } = require('discord.js');
-let rules_message = `
+let rulesMessage = `
 __**Server Rules:**__
 
 :one:  Respect **everyone** in chat.
@@ -56,31 +55,31 @@ module.exports = class ServerCommand extends commando.Command {
     let guild = message.guild
     // Create a new role with data
     function work() {
-        if(message.guild.available === true) {
-            guild.createRole({
-                name: 'Owner',
-                color: 'BLUE',
-                hoist: true,
-            }).catch(console.error)
-            guild.createRole({
-                name: 'Admin',
-                color: 'ORANGE',
-                permissions: 'ADMINISTRATOR',
-                hoist: true,
-            }).catch(console.error)
-            guild.createRole({
-                name: 'Mod',
-                color: 'RED',
-                permissions: 'KICK_MEMBERS',
-                hoist: true,
-            }).catch(console.error)
-            guild.createChannel('rules', 'text').then((channel) => channel.send(rules_message)).catch(console.error)
-            guild.createChannel('spam', 'text').then((channel) => channel.send("This is the spam channel").then((message) => message.pin()).catch(console.error))
-            guild.createChannel('bot_spam', 'text').then((channel) => channel.send("This is the bot_spam channel").then((message) => message.pin()).catch(console.error))
-            guild.createChannel('announcements', 'text').then((channel) => channel.send("This is the announcements channel").then((message) => message.pin()).catch(console.error))
-        }
+      if (message.guild.available === true) {
+        guild.createRole({
+          name: 'Owner',
+          color: 'BLUE',
+          hoist: true
+        }).catch(console.error)
+        guild.createRole({
+          name: 'Admin',
+          color: 'ORANGE',
+          permissions: 'ADMINISTRATOR',
+          hoist: true
+        }).catch(console.error)
+        guild.createRole({
+          name: 'Mod',
+          color: 'RED',
+          permissions: 'KICK_MEMBERS',
+          hoist: true
+        }).catch(console.error)
+        guild.createChannel('rules', 'text').then((channel) => channel.send(rulesMessage)).catch(console.error)
+        guild.createChannel('spam', 'text').then((channel) => channel.send('This is the spam channel').then((message) => message.pin()).catch(console.error))
+        guild.createChannel('bot_spam', 'text').then((channel) => channel.send('This is the bot_spam channel').then((message) => message.pin()).catch(console.error))
+        guild.createChannel('announcements', 'text').then((channel) => channel.send('This is the announcements channel').then((message) => message.pin()).catch(console.error))
+      }
     }
     work()
-    message.edit(`Finished.`)
+    message.edit('Finished.')
   }
 };

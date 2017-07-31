@@ -18,13 +18,14 @@ module.exports = class UnflipCommand extends commando.Command {
         key: 'toUnflip',
         label: 'text',
         prompt: 'Why would you like to unflip?',
-        type: 'string',
+        type: 'string'
       }]
     });
   }
 
   //eslint-disable-next-line class-methods-use-this
   async run(message, args) {
+    //eslint-disable-next-line no-irregular-whitespace
     message.edit(`┬─┬﻿ ノ( ゜-゜ノ), ${args.toUnflip}`)
   }
 };

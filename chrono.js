@@ -19,7 +19,7 @@ client.registry
     ['general', 'general'],
     ['misc', 'Miscellaneous'],
     ['fun', 'Fun'],
-    [`control`, `Control`]
+    ['control', 'Control']
   ])
 
   .registerDefaults()

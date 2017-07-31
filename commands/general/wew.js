@@ -6,7 +6,7 @@ module.exports = class UnflipCommand extends commando.Command {
   constructor(bot) {
     super(bot, {
       name: 'wew',
-      aliases: ['wow', 'w0w', "w3w"],
+      aliases: ['wow', 'w0w', 'w3w'],
       group: 'general',
       memberName: 'wew',
       description: 'WEW.',
@@ -18,7 +18,7 @@ module.exports = class UnflipCommand extends commando.Command {
         key: 'toWew',
         label: 'text',
         prompt: 'What would you like to wew?',
-        type: 'string',
+        type: 'string'
       }]
     });
   }

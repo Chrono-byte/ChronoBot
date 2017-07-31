@@ -18,8 +18,8 @@ module.exports = class RespectsCommand extends commando.Command {
   }
 
   //eslint-disable-next-line class-methods-use-this
-  async run(message, args) {
-    message.edit(`Press F to pay respects`)
-    message.react(`🇫`)
+  async run(message) {
+    message.edit('Press F to pay respects')
+    message.react('🇫')
   }
 };

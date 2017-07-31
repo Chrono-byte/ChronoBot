@@ -18,7 +18,7 @@ module.exports = class ShrugCommand extends commando.Command {
         key: 'toShrug',
         label: 'text',
         prompt: 'Why would you like to shrug?',
-        type: 'string',
+        type: 'string'
       }]
     });
   }
