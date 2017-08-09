@@ -9,21 +9,17 @@ module.exports = class PurgeCommand extends commando.Command {
       aliases: ['purge'],
       group: 'general',
       memberName: 'prune',
-      description: 'Deletes messages by the user',
+      description: 'Deletes messages sent by the user.',
       details: oneLine `
-        Deletes your messages
+        Deletes a specified number of messages sent by you.
+        Faily self-explanitory, yes?
 			`,
       examples: ['prune 5'],
       args: [{
         key: 'toPrune',
-        label: 'text',
+        label: 'amount',
         prompt: 'How many messages?',
-        type: 'string',
-        validate: text => {
-          if (text.length <= 10) return true
-          //eslint-disable-next-line newline-before-return
-          return 'Your message is too long! Must be 10 characters or less.'
-        },
+        type: 'float',
         infinite: false
       }]
     })
@@ -31,7 +27,7 @@ module.exports = class PurgeCommand extends commando.Command {
 
   //eslint-disable-next-line class-methods-use-this
   async run(message, args) {
-    let messagecount = parseInt(args.toPrune[0]);
+    let messagecount = args.toPrune;
     message.channel.fetchMessages({
       limit: 100
     }).then(messages => {

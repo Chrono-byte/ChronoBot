@@ -13,19 +13,25 @@ module.exports = class UnflipCommand extends commando.Command {
       details: oneLine `
       Feelin unangery? Use this command to unflip a table.
 			`,
-      examples: ['unflip'],
+      examples: ['unflip', 'unflip well alright then', 'unflip no worries'],
       args: [{
         key: 'toUnflip',
-        label: 'text',
+        label: 'reason',
         prompt: 'Why would you like to unflip?',
-        type: 'string'
+        type: 'string',
+        default: ''
       }]
     });
   }
 
   //eslint-disable-next-line class-methods-use-this
   async run(message, args) {
-    //eslint-disable-next-line no-irregular-whitespace
-    message.edit(`┬─┬﻿ ノ( ゜-゜ノ), ${args.toUnflip}`)
+    if (args.toUnflip.toLowerCase() === '') {
+      //eslint-disable-next-line no-irregular-whitespace
+      message.edit('┬─┬﻿ ノ( ゜-゜ノ)')
+    } else {
+      //eslint-disable-next-line no-irregular-whitespace
+      message.edit(`┬─┬﻿ ノ( ゜-゜ノ), ${args.toUnflip}`)
+    }
   }
 };

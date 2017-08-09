@@ -11,20 +11,25 @@ module.exports = class ShrugCommand extends commando.Command {
       memberName: 'shrug',
       description: 'Sends the ASCII shrug.',
       details: oneLine `
-      Feelin kinda meh? Use this command to shrug.
+      Feelin kinda meh? Use this command to shrug at something.
 			`,
-      examples: ['shrug'],
+      examples: ['shrug', 'shrug i don\'t care', 'shrug sure'],
       args: [{
         key: 'toShrug',
-        label: 'text',
+        label: 'reason',
         prompt: 'Why would you like to shrug?',
-        type: 'string'
+        type: 'string',
+        default: ''
       }]
     });
   }
 
   //eslint-disable-next-line class-methods-use-this
   async run(message, args) {
-    message.edit(`¯\\_(ツ)_/¯, ${args.toShrug}`)
+    if (args.toShrug.toLowerCase() === '') {
+      message.edit('¯\\_(ツ)_/¯')
+    } else {
+      message.edit(`¯\\_(ツ)_/¯, ${args.toShrug}`)
+    }
   }
 };

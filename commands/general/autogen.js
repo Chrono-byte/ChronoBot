@@ -41,10 +41,11 @@ module.exports = class ServerCommand extends commando.Command {
       aliases: ['automake', 'autosetup'],
       group: 'general',
       memberName: 'autogen',
-      description: 'Wana setup a server automagically?',
+      description: 'Want to setup a server automagically?',
       details: oneLine `
-      Wana setup a server automagically?
-      Use this!
+      This command sets up a server automatically.
+      This includes creating basic channels and staff roles, as well as posting rules.
+      Your life just got a whole lot easier!
 			`,
       examples: ['autogen']
     });

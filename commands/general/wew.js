@@ -9,22 +9,29 @@ module.exports = class UnflipCommand extends commando.Command {
       aliases: ['wow', 'w0w', 'w3w'],
       group: 'general',
       memberName: 'wew',
-      description: 'WEW.',
+      description: 'Express your amazement at something.',
       details: oneLine `
-      Feelin like "WEW", use this.
+      Did something amaze you? Are you far to lazy to bold an amazed face yourself?
+      This is the command for you!
+      This comman can be used to express your amazement at something.
 			`,
-      examples: ['wew'],
+      examples: ['wew', 'wew that was close', 'wew 360noscope'],
       args: [{
         key: 'toWew',
-        label: 'text',
+        label: 'reason',
         prompt: 'What would you like to wew?',
-        type: 'string'
+        type: 'string',
+        default: ''
       }]
     });
   }
 
   //eslint-disable-next-line class-methods-use-this
   async run(message, args) {
-    message.edit(`**o_O** wew, ${args.toWew}`)
+    if (args.toWew.toLowerCase() === '') {
+      message.edit('**o_O** wew')
+    } else {
+      message.edit(`**o_O** wew, ${args.toWew}`)
+    }
   }
 };

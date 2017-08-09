@@ -9,9 +9,10 @@ module.exports = class RespectsCommand extends commando.Command {
       aliases: ['f'],
       group: 'general',
       memberName: 'respects',
-      description: 'respects.',
+      description: 'Press F to pay respects.',
       details: oneLine `
-      Press F to pay respects
+      Are you too lazy to add reactions to a message yourself?
+      This command automatically creates a respects message so people can pay respects.
 			`,
       examples: ['respects']
     });

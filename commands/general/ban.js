@@ -9,9 +9,10 @@ module.exports = class RespectsCommand extends commando.Command {
       aliases: ['banish'],
       group: 'general',
       memberName: 'ban',
-      description: 'ban.',
+      description: 'Does what you would expect it to do.',
       details: oneLine `
-      Drop the ban hammer
+      This command does what you'd expect it to do, ban people.
+      It's quite self-explanitory, is it not?
 			`,
       examples: ['ban @Cewldawg#l337'],
       args: [{
@@ -26,8 +27,9 @@ module.exports = class RespectsCommand extends commando.Command {
 
   //eslint-disable-next-line class-methods-use-this
   async run(message, args) {
+    if (!message.guild.member(this.client.user).hasPermission('BAN_MEMBERS')) return message.reply('Ripperoni, no permission to ban people.')
     message.guild.ban(args.toBan).then(user => {
-        message.edit(`Successfully Banned ${user.user.tag} from ${message.guild.name}`)
+      message.edit(`Successfully Banned ${user.user.tag} from ${message.guild.name}`)
     })
   }
 };
