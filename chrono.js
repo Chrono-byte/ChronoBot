@@ -21,13 +21,19 @@ client.registry
     ['fun', 'Fun'],
     ['control', 'Control']
   ])
-
-  .registerDefaults()
-
+  .registerDefaultTypes()
+  .registerDefaultGroups()
+  .registerDefaultCommands({
+    help: false,
+    prefix: true,
+    eval_: true,
+    ping: true,
+    commandState: false
+  })
   .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.setProvider(sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new commando.SQLiteProvider(db))).catch(console.error);
-console.log('Commando framework set up.');
+console.log('Command framework set up.');
 console.log('Awaiting log in.');
 
 client
