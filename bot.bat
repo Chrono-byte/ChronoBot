@@ -8,7 +8,7 @@ echo This script is to run the bot.
 echo If it says Error: Module not found make sure to run the install script.
 -------------------------------------------------------
 
-call npm -version >NUL 2>&1
+cmd /k npm -version >NUL 2>&1
 if not "%ERRORLEVEL%" == "0" goto nodeErr
 
 :nodeErr
@@ -23,5 +23,5 @@ echo ---------------------------------------------------
 echo --------------------------------------------------
 echo Starting ChronoBot...
 echo --------------------------------------------------
-call node --harmony chrono.js
+cmd /k node --harmony chrono.js
 goto start
