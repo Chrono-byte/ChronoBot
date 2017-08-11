@@ -2,9 +2,16 @@
 color a
 title ChronoBot - Simple Discord Selfbot
 
-call npm -version >NUL 2>&1
-if "%ERRORLEVEL%" == "0" goto start
+echo --------------------------------------------------
+echo Welcome to ChronoBot, a simple Discord Selfbot by Chronomly and TJDoesCode!
+echo This script is to run the bot.
+echo If it says "Error: Module not found" make sure to run the install script.
+-------------------------------------------------------
 
+call npm -version >NUL 2>&1
+if not "%ERRORLEVEL%" == "0" goto nodeErr
+
+:nodeErr
 echo ---------------------------------------------------
 echo NodeJS was not found. Please install it.
 echo https://nodejs.org
@@ -16,5 +23,5 @@ echo ---------------------------------------------------
 echo --------------------------------------------------
 echo Starting ChronoBot...
 echo --------------------------------------------------
-CMD node --harmony chrono.js
+call node --harmony chrono.js
 goto start
