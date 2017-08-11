@@ -1,7 +1,7 @@
 //eslint-disable-next-line
 const commando = require('discord.js-commando');
 const { stripIndents, oneLine } = require('common-tags');
-const Command = require('../../../node_modules/discord.js-commando/src/commands/base');
+const Command = require('../../../node_modules/discord.js-commando/src/commands/base.js');
 //const disambiguation = require('../../util').disambiguation;
 
 module.exports = class HelpCommand extends commando.Command {
