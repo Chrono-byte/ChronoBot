@@ -9,7 +9,7 @@ echo If you have already ran this script, you do not need to again.
 echo To run the bot, run bot.bat.
 -------------------------------------------------------
 
-call npm -version >NUL 2>&1
+cmd /k npm -version >NUL 2>&1
 if not "%ERRORLEVEL%" == "0" goto nodeErr
 
 :nodeErr
@@ -23,4 +23,4 @@ echo ---------------------------------------------------
 
 echo ---------------------------------------------------
 echo Installing packages...
-call npm install
+cmd /k npm install
