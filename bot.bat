@@ -15,7 +15,7 @@ if not "%ERRORLEVEL%" == "0" goto nodeErr
 echo ---------------------------------------------------
 echo NodeJS was not found. Please install it.
 echo https://nodejs.org
-echo Be sure to install the "Current" version, NOT the LTS version.
+echo Be sure to install the Current version, NOT the LTS version.
 echo The correct version is the button on the right side.
 echo ---------------------------------------------------
 
