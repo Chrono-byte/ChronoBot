@@ -1,7 +1,7 @@
 //eslint-disable-next-line
 const commando = require('discord.js-commando');
 const { stripIndents, oneLine } = require('common-tags');
-const Command = require('../../../node_modules/discord.js-commando/src/commands/base.js');
+const config = require('../../config.json')
 //const disambiguation = require('../../util').disambiguation;
 
 module.exports = class HelpCommand extends commando.Command {
@@ -74,13 +74,13 @@ module.exports = class HelpCommand extends commando.Command {
     }
     const messages = [];
     try {
+      /*eslint-disable*/
       messages.push(await msg.channel.send(stripIndents `
 					${oneLine `
 						To run a command in ${msg.guild || 'any server'},
-						use ${Command.usage('command', msg.guild ? msg.guild.commandPrefix : null, this.client.user)}.
-						For example, ${Command.usage('prefix', msg.guild ? msg.guild.commandPrefix : null, this.client.user)}.
+						use \`${msg.guild ? msg.guild.commandPrefix : null, config.prefix}command\`.
+						For example, \`${msg.guild ? msg.guild.commandPrefix : null, config.prefix}prefix\`.
 					`}
-					To run a command in this DM, simply use ${Command.usage('command', null, null)} with no prefix.
 
 					Use ${this.usage('<command>', null, null)} to view detailed information about a specific command.
 					Use ${this.usage('all', null, null)} to view a list of *all* commands, not just available ones.
@@ -96,6 +96,7 @@ module.exports = class HelpCommand extends commando.Command {
 						`).join('\n\n')
 					}
 				`, { split: true }));
+      /*eslint-enable*/
     } catch (err) {
       messages.push(await msg.reply('Unable to send you the help DM. You probably have DMs disabled.'));
     }
