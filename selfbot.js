@@ -1,4 +1,6 @@
 //eslint-disable-next-line
+console.error('This is the old selfbot file. This is currently being migrated to a new system.')
+console.error('Please do not run this version.')
 console.log('Booting...')
 const Discord = require('discord.js');
 const client = new Discord.Client();
