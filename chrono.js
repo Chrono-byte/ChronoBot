@@ -37,9 +37,9 @@ console.log('Command framework set up.');
 console.log('Awaiting log in.');
 
 client
-  .on('error', () => console.error)
-  .on('warn', () => console.warn)
-  .on('debug', () => console.log)
+  .on('error', console.error)
+  .on('warn', console.warn)
+  .on('debug', console.log)
   .on('ready', () => {
     console.log(`Client ready; logged in as ${client.user.tag} (${client.user.id}) with prefix "${config.prefix}"`)
     console.log('Awaiting actions.')
