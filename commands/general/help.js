@@ -76,7 +76,8 @@ module.exports = class HelpCommand extends commando.Command {
     try {
       /*eslint-disable*/
       messages.push(await msg.channel.send(stripIndents `
-					${oneLine `
+          ${oneLine `
+            Chronomly#8108 and TJDoesCode#6088 **are not responsible if you get banned for using ChronoBot**.
 						To run a command in ${msg.guild || 'any server'},
 						use \`${msg.guild ? msg.guild.commandPrefix : null, config.prefix}command\`.
 						For example, \`${msg.guild ? msg.guild.commandPrefix : null, config.prefix}prefix\`.

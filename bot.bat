@@ -6,7 +6,7 @@ echo --------------------------------------------------
 echo Welcome to ChronoBot, a simple Discord Selfbot by Chronomly and TJDoesCode!
 echo This script is to run the bot.
 echo If it says Error: Module not found make sure to run the install script.
--------------------------------------------------------
+echo -------------------------------------------------------
 
 cmd /k npm -version >NUL 2>&1
 if not "%ERRORLEVEL%" == "0" goto nodeErr

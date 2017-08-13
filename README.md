@@ -1,6 +1,7 @@
 # ChronoBot
 
-A discord selfbot written in javascript using discord.js!, [Support Server!](https://discord.gg/YH2RV2P)
+A discord selfbot written in javascript using discord.js!, [Support Server!](https://discord.gg/YH2RV2P).
+Chronomly#8108 and TJDoesCode#6088 <b>are not responsible if you get banned for using ChronoBot</b>.
 
 # How to Use!
 
@@ -15,4 +16,8 @@ after you do that go into the folder and do `npm install`
 
 # How to run after you get node and deps!
 
-run `node chrono.js --harmony` and then you are done!
+Run `node chrono.js --harmony` and then you are done!
+
+# Disclaimer
+
+Due to selfbots being against the Discord TOS, Chronomly#8108 and TJDoesCode#6088 <b>ARE NOT RESPONSIBLE FOR YOU GETTING BANNED</b>
