@@ -1,5 +1,5 @@
 # ChronoBot
-
+[![](https://discordapp.com/api/guilds/323874457091440640/embed.png?style=shield)](https://discord.gg/MSQEBPY)
 A discord selfbot written in javascript using discord.js!, [Support Server!](https://discord.gg/YH2RV2P).
 Chronomly#8108 and TJDoesCode#6088 <b>are not responsible if you get banned for using ChronoBot</b>.
 
@@ -17,10 +17,6 @@ after you do that go into the folder and do `npm install`
 # How to run after you get node and deps!
 
 Run `node chrono.js --harmony` and then you are done!
-
-#
-
-[![](https://discordapp.com/api/guilds/323874457091440640/embed.png?style=banner2)](https://discord.gg/MSQEBPY)
 
 # Disclaimer
 
