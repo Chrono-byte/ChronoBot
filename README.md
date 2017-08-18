@@ -18,6 +18,10 @@ after you do that go into the folder and do `npm install`
 
 Run `node chrono.js --harmony` and then you are done!
 
+#
+
+[![](https://discordapp.com/api/guilds/323874457091440640/embed.png?style=banner2)](https://discord.gg/MSQEBPY)
+
 # Disclaimer
 
 Due to selfbots being against the Discord TOS, Chronomly#8108 and TJDoesCode#6088 <b>ARE NOT RESPONSIBLE FOR YOU GETTING BANNED</b>
